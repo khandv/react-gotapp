@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './itemList.css';
 import ErrorMessage from '../errorMessage';
 import Spinner from '../spinner/';
+import PropTypes from 'prop-types';
 
 
 export default class ItemList extends Component {
@@ -10,6 +11,15 @@ export default class ItemList extends Component {
         itemList: null,
         error: false
     }
+
+    static defaultProps = {
+        onItemSelected: () => {}    
+    }
+    
+    static propTypes = {
+        onItemSelected: PropTypes.func
+    }
+
     componentDidMount() {
         const {getData} = this.props;
 
@@ -71,3 +81,4 @@ export default class ItemList extends Component {
         );
     }
 }
+
