@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './itemList.css';
-import ErrorMessage from '../error';
+import ErrorMessage from '../errorMessage';
 import Spinner from '../spinner/';
 
 
@@ -42,7 +42,7 @@ export default class ItemList extends Component {
                 <li
                     key={id}
                     className="list-group-item"
-                    onClick={() => this.props.onCharSelected(id)}
+                    onClick={() => this.props.onItemSelected(id)}
                     >
                     {label}
                 </li>
