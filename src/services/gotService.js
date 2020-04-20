@@ -19,7 +19,7 @@ export default class GotService {
         return res.map(this._transformBook);
     }
     
-    agetBook = async (id) => {
+    getBook = async (id) => {
         const book = await this.getResource(`/books/${id}/`);
         return this._transformBook(book);
     }
@@ -40,7 +40,7 @@ export default class GotService {
     }
     
     getHouse = async (id) => {
-        const house = await this.getResource(`/houses/${id}/`);
+        const house = this.getResource(`/houses/${id}/`);
         return this._transformHouse(house);
     }
 

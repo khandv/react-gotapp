@@ -10,14 +10,22 @@ import gotService from '../../services/gotService';
 
 import './app.css';
 
-export default class App extends Component {
 
+export default class App extends Component {
     gotService = new gotService();
 
     state = {
         showRandomChar: true,
         error: false
     }
+
+    componentDidCatch() {
+        console.log('error');
+        this.setState({
+            error: true
+        })
+    }
+    
     toggleRandomChar = () => {
         this.setState((state) => {
             return {
@@ -46,26 +54,6 @@ export default class App extends Component {
                         </Col>
                     </Row>
                     <CharacterPage/>
-                    {/* <Row>
-                        <Col md='6'>
-                            <ItemList
-                                onCharSelected={this.onCharSelected}
-                                getData={this.gotService.getAllBooks}/>
-                        </Col>                            
-                        <Col md='6'>
-                            <CharDetails charId={this.state.selectedChair}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md='6'>
-                            <ItemList 
-                                onCharSelected={this.onCharSelected}
-                                getData={this.gotService.getAllHouses}/>
-                        </Col>                            
-                        <Col md='6'>
-                            <CharDetails charId={this.state.selectedChair}/>
-                        </Col>
-                    </Row> */}
                 </Container>
             </>
         );
